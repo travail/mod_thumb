@@ -37,6 +37,8 @@ static apr_status_t parse_request_uri(request_rec *r, char **uri, char **size)
         return APR_SUCCESS;
     }
     else {
+        ap_log_rerror(APLOG_MARK, APLOG_ERR, 0, r,
+                      "Can't parse URI: %s", *uri);
         return APR_EGENERAL;
     }
 }

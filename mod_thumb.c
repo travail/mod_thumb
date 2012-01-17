@@ -71,7 +71,7 @@ static char *uri2thumbpath(request_rec *r, const char *uri, const char *size)
     char *digest = md5digest(r, uri);
     int   i;
     for (i = 0; i < conf->thumb_dir_depth; i++) {
-        char sub[2];
+        char sub[2] = "";
         strncpy(sub, digest + i, 1);
         path = apr_pstrcat(r->pool, path,
                            apr_pstrcat(r->pool, "/", sub, NULL), NULL);
